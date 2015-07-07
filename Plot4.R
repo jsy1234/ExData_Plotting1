@@ -20,7 +20,8 @@ par(mgp=c(2,0.5,0),mar=c(3,3,2,1))
 #################### (1,1) ########################
 plot(GAP_k,type="l",ylab="Global Active Power(kilowatts)",xaxt="n")
 xLab<-c("Thu","Fri","Sat")
-#添加上坐标轴：1代表横坐标轴，2代表纵坐标,at是要多少个刻度，las是这些刻度的显示形式，3表示竖着
+# xaxt="n" close the X-label
+# readd X-label: 1 represents the x-label,2 represents the y-label, at means position
 axis(1,labels=xLab,at=seq(0,length(GAP_k),length(GAP_k)/2),las=3)
 
 #################### (1,2) ########################
@@ -41,7 +42,8 @@ legend("topright",legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),c
 #################### (2,2) ########################
 GRP_k<-as.numeric(sub_data$Global_reactive_power)
 plot(GRP_k,type="l",ylab="Global Reactive Power(kilowatts)",xlab="datetime",xaxt="n")
-#添加上坐标轴：1代表横坐标轴，2代表纵坐标,at是要多少个刻度，las是这些刻度的显示形式，3表示竖着
+# xaxt="n" close the X-label
+# readd X-label: 1 represents the x-label,2 represents the y-label, at means position
 axis(1,labels=xLab,at=seq(0,length(GAP_k),length(GAP_k)/2),las=3)
 
 dev.off()
