@@ -15,17 +15,18 @@ GAP_k<-as.numeric(sub_data$Global_active_power)
 ################### PLOT 3 ########################
 png(file = "plot3.png",width = 480,height = 480, bg = "transparent")
 # 2880 is the length of the data, conducted by the function "length()"
-xline<-c(1,2880)
+data_L<-length(sub_data$Sub_metering_1)
+xline<-c(1,data_L)
 Sub_metering_1<-as.numeric(sub_data$Sub_metering_1)
 Sub_metering_2<-as.numeric(sub_data$Sub_metering_2)
 Sub_metering_3<-as.numeric(sub_data$Sub_metering_3)
 ## IMP!
 ## xlim is normally a vector with exactly two values (min and max) and not a sequence. 
-plot(1:2880,Sub_metering_1,col="black",type="l",xlab="",ylab="Energy sub metering",xlim<-xline,ylim<-c(2,40),xaxt="n")
+plot(1:data_L,Sub_metering_1,col="black",type="l",xlab="",ylab="Energy sub metering",xlim<-xline,ylim<-c(2,40),xaxt="n")
 par(new=TRUE)
-plot(1:2880,Sub_metering_2,col="red",type="l",xlab="",ylab="Energy sub metering",xlim<-xline,ylim<-c(2,40),xaxt="n")
+plot(1:data_L,Sub_metering_2,col="red",type="l",xlab="",ylab="Energy sub metering",xlim<-xline,ylim<-c(2,40),xaxt="n")
 par(new=TRUE)
-plot(1:2880,Sub_metering_3,col="blue",type="l",xlab="",ylab="Energy sub metering",xlim<-xline,ylim<-c(2,40),xaxt="n")
+plot(1:data_L,Sub_metering_3,col="blue",type="l",xlab="",ylab="Energy sub metering",xlim<-xline,ylim<-c(2,40),xaxt="n")
 # change the label in the axis
 xLab<-c("Thu","Fri","Sat")
 axis(1,labels=xLab,at=seq(0,length(GAP_k),length(GAP_k)/2),las=3)
